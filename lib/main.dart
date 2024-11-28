@@ -5,6 +5,8 @@ import 'package:wisata_candi/screen/favorite_screen.dart';
 import 'package:wisata_candi/screen/home_screen.dart';
 import 'package:wisata_candi/screen/profile_screen.dart';
 import 'package:wisata_candi/screen/search_screen.dart';
+import 'package:wisata_candi/screen/sign_in_screen.dart';
+import 'package:wisata_candi/screen/sign_up_screen.dart';
 import 'screen/detail_screen.dart';
 import 'package:wisata_candi/screen/profile_screen.dart';
 import 'package:wisata_candi/screen/home_screen.dart';
@@ -35,11 +37,16 @@ class MainApp extends StatelessWidget {
           ),
           useMaterial3: true),
       //home: const HomeScreen(),
-      home: const MainScreen(),
+      home: const SignUpScreen(),
+      initialRoute: '/',
+      routes: {
+        '/homescreen': (context) => const HomeScreen(),
+        '/signin': (context) => const SignInScreen(),
+        '/signup': (context) => const SignUpScreen(),
+      }
     );
   }
 }
-
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -108,6 +115,7 @@ class _MainScreenState extends State<MainScreen> {
           showUnselectedLabels: true,
         ),
         //TODO: 2. Buat properti body berupa widget yang ditampilkan
+        
         //TODO: 3. Buat properti bottomNavigationBar dengan nilai Theme
         //TODO: 4. Buat data dan child dari Theme
       ),

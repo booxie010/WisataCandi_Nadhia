@@ -20,6 +20,36 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isSignedUp = false;
   bool _obscurePassword = false;
 
+  //TODO: 7. Buat Fungsi untuk _signUp
+  void _signUp() {
+    String name = _nameController.text.trim();
+    String username = _usernameController.text.trim();
+    String password = _passwordController.text.trim();
+
+    if (password.length < 8) {
+      !password.contains(RegExp(r'[A-Z]')) ||
+      !password.contains(RegExp(r'[a-z]')) ||
+      !password.contains(RegExp(r'[0-9]')) ||
+      !password.contains(RegExp(r'[!@#\$%^&*(),.?":{}|<>]')); 
+        _showError("Password harus memiliki minimal 8 karakter yang mengandung huruf besar, huruf kecil, angka, dan karakter khusus.");
+    }
+    print('*** Sign up berhasil!');
+    print('Nama: $name');
+    print('Nama Pengguna: $username');
+    print('Password: $password');
+  }
+    //TODO: 8. Membuat fungsi dispose
+    @override
+    void dispose() {
+      //TODO: implement dispose
+      super.dispose();
+    }
+  void _showError(String message) {
+    setState(() {
+      _errorText = message;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +72,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextFormField(
                     controller: _nameController,
                     decoration: const InputDecoration(
-                      labelText: "Nama Pengguna",
+                      labelText: "Nama",
                       border: OutlineInputBorder(),
                     ),
                   ),
                   //TODO: 5. Pasang TextFormField Nama Pengguna
+                  SizedBox(height: 20,),
                   TextFormField(
                     controller: _usernameController,
                     decoration: const InputDecoration(

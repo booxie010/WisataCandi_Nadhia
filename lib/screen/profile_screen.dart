@@ -14,12 +14,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String fullName = "DummyName";
   String userName = "DummyUsername";
   int favoriteCandiCount = 0;
+  late Color iconColor;
 
   // TODO: 5. Implementasi Fungsi Sign In
   void signIn() {
-    setState(() {
-      isSignedIn = !isSignedIn;
-    });
+    Navigator.pushNamed(context, '/signin');
   }
 
   // TODO: 6. Implementasi Fungsi Sign Out
@@ -191,9 +190,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 isSignedIn
                     ? TextButton(
-                        onPressed: () {}, child: const Text('Sign Out'))
+                        onPressed: signOut, 
+                        child: const Text('Sign Out'))
                     : TextButton(
-                        onPressed: () {}, child: const Text('Sign In')),
+                        onPressed: signIn, child: const Text('Sign In')),
               ],
             ),
           ),

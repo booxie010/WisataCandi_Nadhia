@@ -95,6 +95,10 @@ class _SignInScreenState extends State<SignInScreen> {
                             decoration: TextDecoration.underline,
                             fontSize: 16,
                           ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Navigator.pushNamed(context, '/signup');
+                            },
                         ),
                       ],
                     ),
